@@ -5,21 +5,60 @@ function getComputerChoice() {
     // Return choice based on number
     switch(randomNumber) {
         case 1:
-            return "rock";
+            return "Rock";
             break;
 
         case 2:
-            return "paper";
+            return "Paper";
             break;
 
         case 3:
-            return "scissors";
+            return "Scissors";
             break;
     }
 }
 
 function playRound(playerSelection, computerSelection) {
+    // Standardise player response
+    let lowerCase = playerSelection.toLowerCase();
+    playerSelection = lowerCase.replace(lowerCase[0], lowerCase[0].toUpperCase());
 
+    // Set win/lose statements
+    let computerWin = `You Lose! ${computerSelection} beats ${playerSelection}.`
+    let playerWin = `You Win! ${playerSelection} beats ${computerSelection}.`
+    let tie = `It's a Tie! ${playerSelection} ties with ${computerSelection}.`
+
+    switch (playerSelection) {
+        case "Rock":
+            if (computerSelection == "Rock") {
+                return tie;
+            } else if (computerSelection == "Paper") {
+                return computerWin;
+            } else if (computerSelection == "Scissors") {
+                return playerWin;
+            }
+            break;
+        
+        case "Scissors":
+            if (computerSelection == "Rock") {
+                return computerWin;
+            } else if (computerSelection == "Paper") {
+                return playerWin;
+            } else if (computerSelection == "Scissors") {
+                return tie;
+            }
+            break;
+
+        case "Paper":
+            if (computerSelection == "Rock") {
+                return playerWin;
+            } else if (computerSelection == "Paper") {
+                return tie;
+            } else if (computerSelection == "Scissors") {
+                return computerWin;
+            }
+            break;
+    }
 }
 
 function game() {

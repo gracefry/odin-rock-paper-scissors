@@ -105,3 +105,6 @@ function game() {
         console.log(`You Win! ${playerWins} v ${computerWins}`)
     }
 }
+
+// Start automatically
+game();

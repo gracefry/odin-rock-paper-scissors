@@ -31,41 +31,77 @@ function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
         case "Rock":
             if (computerSelection == "Rock") {
-                return tie;
+                console.log(tie);
+                return "T";
             } else if (computerSelection == "Paper") {
-                return computerWin;
+                console.log(computerWin);
+                return "C";
             } else if (computerSelection == "Scissors") {
-                return playerWin;
+                console.log(playerWin);
+                return "P";
             }
             break;
         
         case "Scissors":
             if (computerSelection == "Rock") {
-                return computerWin;
+                console.log(computerWin);
+                return "C";
             } else if (computerSelection == "Paper") {
-                return playerWin;
+                console.log(playerWin);
+                return "P";
             } else if (computerSelection == "Scissors") {
-                return tie;
+                console.log(tie);
+                return "T";
             }
             break;
 
         case "Paper":
             if (computerSelection == "Rock") {
-                return playerWin;
+                console.log(playerWin);
+                return "P";
             } else if (computerSelection == "Paper") {
-                return tie;
+                console.log(tie);
+                return "T";
             } else if (computerSelection == "Scissors") {
-                return computerWin;
+                console.log(computerWin);
+                return "C";
             }
             break;
     }
 }
 
 function game() {
+    let computerWins = 0;
+    let playerWins = 0;
+    let gameNumber = 0;
+
+    // Play 5 games
     for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("Rock, Paper, or Scissors?: ");
+        let playerChoice = prompt(`This is game ${gameNumber} of 5.\nRock, Paper, or Scissors?: `);
         let computerChoice = getComputerChoice();
 
-        console.log(playRound(playerChoice, computerChoice));
+        switch (playRound(playerChoice, computerChoice)) {
+            case "C":
+                computerWins++;
+                break;
+            
+            case "P":
+                playerWins++;
+                break;
+
+            case "T":
+                break;
+        }
+
+        gameNumber++;
+    }
+
+    // Calculate final score
+    if (computerWins > playerWins) {
+        console.log(`Computer Wins! ${computerWins} v ${playerWins}`);
+    } else if (computerWins == playerWins) {
+        console.log(`It's a Tie! ${computerWins} v ${playerWins}.`);
+    } else {
+        console.log(`You Win! ${playerWins} v ${computerWins}`)
     }
 }

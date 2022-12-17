@@ -80,7 +80,8 @@ function checkScore() {
     }
 }
 
-function game(playerSelection) {
+function game(e) {
+    let playerSelection = e.target.id;
     let computerSelection = getComputerChoice();
 
     let result = playRound(playerSelection, computerSelection);
@@ -109,21 +110,9 @@ let playerWins = 0;
 
 // Button presses
 
-const rockButton = document.getElementById('rock');
-rockButton.addEventListener('click', () => {
-    let playerSelection = "Rock";
-    game(playerSelection);
-});
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener('click', game)
+    });
 
-const paperButton = document.querySelector('#paper');
-paperButton.addEventListener('click', () => {
-    let playerSelection = "Paper";
-    game(playerSelection);
-});
-
-const scissorsButton = document.querySelector('#scissors');
-scissorsButton.addEventListener('click', () => {
-    let playerSelection = "Scissors";
-    game(playerSelection);
-});
 

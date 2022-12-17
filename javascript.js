@@ -67,87 +67,80 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let computerWins = 0;
-    let playerWins = 0;
-    let gameNumber = 0;
-
-    // Button presses
-
-    const rockButton = document.getElementById('rock');
-    rockButton.addEventListener('click', () => {
-        let playerSelection = "Rock";
-        let computerSelection = getComputerChoice();
-
-        let result = playRound(playerSelection, computerSelection);
-        switch (result) {
-            case "C":
-                computerWins++;
-                break;
-            
-            case "P":
-                playerWins++;
-                break;
-
-            case "T":
-                break;
-        }
-    });
-
-    const paperButton = document.querySelector('#paper');
-    paperButton.addEventListener('click', () => {
-        let playerSelection = "Paper";
-        let computerSelection = getComputerChoice();
-        
-        let result = playRound(playerSelection, computerSelection);
-        switch (result) {
-            case "C":
-                computerWins++;
-                break;
-            
-            case "P":
-                playerWins++;
-                break;
-
-            case "T":
-                break;
-        }
-    });
-
-    const scissorsButton = document.querySelector('#scissors');
-    scissorsButton.addEventListener('click', () => {
-        let playerSelection = "Scissors";
-        let computerSelection = getComputerChoice();
-        
-        let result = playRound(playerSelection, computerSelection);
-        switch (result) {
-            case "C":
-                computerWins++;
-                break;
-            
-            case "P":
-                playerWins++;
-                break;
-
-            case "T":
-                break;
-        }
-    });
-
-    // Calculate final score
-    if (computerWins > playerWins) {
-        console.log(`Computer Wins! ${computerWins} v ${playerWins}`);
-    } else if (computerWins == playerWins) {
-        console.log(`It's a Tie! ${computerWins} v ${playerWins}.`);
-    } else {
-        console.log(`You Win! ${playerWins} v ${computerWins}`)
-    }
-
-}
-
-// Start automatically
 const body = document.querySelector("body");
 const div = document.createElement("div");
 body.appendChild(div);
 
-game();
+let computerWins = 0;
+let playerWins = 0;
+
+// Button presses
+
+const rockButton = document.getElementById('rock');
+rockButton.addEventListener('click', () => {
+    let playerSelection = "Rock";
+    let computerSelection = getComputerChoice();
+
+    let result = playRound(playerSelection, computerSelection);
+    switch (result) {
+        case "C":
+            computerWins++;
+            break;
+        
+        case "P":
+            playerWins++;
+            break;
+
+        case "T":
+            break;
+    }
+
+    checkScore();
+});
+
+const paperButton = document.querySelector('#paper');
+paperButton.addEventListener('click', () => {
+    let playerSelection = "Paper";
+    let computerSelection = getComputerChoice();
+    
+    let result = playRound(playerSelection, computerSelection);
+    switch (result) {
+        case "C":
+            computerWins++;
+            break;
+        
+        case "P":
+            playerWins++;
+            break;
+
+        case "T":
+            break;
+    }
+
+    checkScore();
+});
+
+const scissorsButton = document.querySelector('#scissors');
+scissorsButton.addEventListener('click', () => {
+    let playerSelection = "Scissors";
+    let computerSelection = getComputerChoice();
+    
+    let result = playRound(playerSelection, computerSelection);
+    switch (result) {
+        case "C":
+            computerWins++;
+            break;
+        
+        case "P":
+            playerWins++;
+            break;
+
+        case "T":
+            break;
+    }
+
+    checkScore();
+});
+
+
+

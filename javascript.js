@@ -80,6 +80,26 @@ function checkScore() {
     }
 }
 
+function game(playerSelection) {
+    let computerSelection = getComputerChoice();
+
+    let result = playRound(playerSelection, computerSelection);
+    switch (result) {
+        case "C":
+            computerWins++;
+            break;
+        
+        case "P":
+            playerWins++;
+            break;
+
+        case "T":
+            break;
+    }
+
+    checkScore();
+}
+
 const body = document.querySelector("body");
 const div = document.createElement("div");
 body.appendChild(div);
@@ -92,66 +112,18 @@ let playerWins = 0;
 const rockButton = document.getElementById('rock');
 rockButton.addEventListener('click', () => {
     let playerSelection = "Rock";
-    let computerSelection = getComputerChoice();
-
-    let result = playRound(playerSelection, computerSelection);
-    switch (result) {
-        case "C":
-            computerWins++;
-            break;
-        
-        case "P":
-            playerWins++;
-            break;
-
-        case "T":
-            break;
-    }
-
-    checkScore();
+    game(playerSelection);
 });
 
 const paperButton = document.querySelector('#paper');
 paperButton.addEventListener('click', () => {
     let playerSelection = "Paper";
-    let computerSelection = getComputerChoice();
-    
-    let result = playRound(playerSelection, computerSelection);
-    switch (result) {
-        case "C":
-            computerWins++;
-            break;
-        
-        case "P":
-            playerWins++;
-            break;
-
-        case "T":
-            break;
-    }
-
-    checkScore();
+    game(playerSelection);
 });
 
 const scissorsButton = document.querySelector('#scissors');
 scissorsButton.addEventListener('click', () => {
     let playerSelection = "Scissors";
-    let computerSelection = getComputerChoice();
-    
-    let result = playRound(playerSelection, computerSelection);
-    switch (result) {
-        case "C":
-            computerWins++;
-            break;
-        
-        case "P":
-            playerWins++;
-            break;
-
-        case "T":
-            break;
-    }
-
-    checkScore();
+    game(playerSelection);
 });
 

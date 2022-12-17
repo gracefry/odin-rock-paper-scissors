@@ -32,39 +32,47 @@ function playRound(playerSelection, computerSelection) {
         case "Rock":
             if (computerSelection == "Rock") {
                 console.log(tie);
-                return "T";
+                break;
+                //return "T";
             } else if (computerSelection == "Paper") {
                 console.log(computerWin);
-                return "C";
+                break;
+                //return "C";
             } else if (computerSelection == "Scissors") {
                 console.log(playerWin);
-                return "P";
+                //return "P";
             }
             break;
         
         case "Scissors":
             if (computerSelection == "Rock") {
                 console.log(computerWin);
-                return "C";
+                break;
+                //return "C";
             } else if (computerSelection == "Paper") {
                 console.log(playerWin);
-                return "P";
+                break;
+                //return "P";
             } else if (computerSelection == "Scissors") {
                 console.log(tie);
-                return "T";
+                break;
+                //return "T";
             }
             break;
 
         case "Paper":
             if (computerSelection == "Rock") {
                 console.log(playerWin);
-                return "P";
+                break;
+                //return "P";
             } else if (computerSelection == "Paper") {
                 console.log(tie);
-                return "T";
+                break;
+                //return "T";
             } else if (computerSelection == "Scissors") {
                 console.log(computerWin);
-                return "C";
+                break;
+                //return "C";
             }
             break;
     }
@@ -75,12 +83,15 @@ function game() {
     let playerWins = 0;
     let gameNumber = 0;
 
-    // Play 5 games
-    for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt(`This is game ${gameNumber} of 5.\nRock, Paper, or Scissors?: `);
-        let computerChoice = getComputerChoice();
+    // Button presses
 
-        switch (playRound(playerChoice, computerChoice)) {
+    const rockButton = document.getElementById('rock');
+    rockButton.addEventListener('click', () => {
+        let playerSelection = "Rock";
+        let computerSelection = getComputerChoice();
+
+        let result = playRound(playerSelection, computerSelection);
+        switch (result) {
             case "C":
                 computerWins++;
                 break;
@@ -92,9 +103,47 @@ function game() {
             case "T":
                 break;
         }
+    });
 
-        gameNumber++;
-    }
+    const paperButton = document.querySelector('#paper');
+    paperButton.addEventListener('click', () => {
+        let playerSelection = "Paper";
+        let computerSelection = getComputerChoice();
+        
+        let result = playRound(playerSelection, computerSelection);
+        switch (result) {
+            case "C":
+                computerWins++;
+                break;
+            
+            case "P":
+                playerWins++;
+                break;
+
+            case "T":
+                break;
+        }
+    });
+
+    const scissorsButton = document.querySelector('#scissors');
+    scissorsButton.addEventListener('click', () => {
+        let playerSelection = "Scissors";
+        let computerSelection = getComputerChoice();
+        
+        let result = playRound(playerSelection, computerSelection);
+        switch (result) {
+            case "C":
+                computerWins++;
+                break;
+            
+            case "P":
+                playerWins++;
+                break;
+
+            case "T":
+                break;
+        }
+    });
 
     // Calculate final score
     if (computerWins > playerWins) {
@@ -104,6 +153,7 @@ function game() {
     } else {
         console.log(`You Win! ${playerWins} v ${computerWins}`)
     }
+
 }
 
 // Start automatically

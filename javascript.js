@@ -6,15 +6,12 @@ function getComputerChoice() {
     switch(randomNumber) {
         case 1:
             return "Rock";
-            break;
 
         case 2:
             return "Paper";
-            break;
 
         case 3:
             return "Scissors";
-            break;
     }
 }
 
@@ -32,47 +29,39 @@ function playRound(playerSelection, computerSelection) {
         case "Rock":
             if (computerSelection == "Rock") {
                 console.log(tie);
-                break;
-                //return "T";
+                return "T";
             } else if (computerSelection == "Paper") {
                 console.log(computerWin);
-                break;
-                //return "C";
+                return "C";
             } else if (computerSelection == "Scissors") {
                 console.log(playerWin);
-                //return "P";
+                return "P";
             }
             break;
         
         case "Scissors":
             if (computerSelection == "Rock") {
                 console.log(computerWin);
-                break;
-                //return "C";
+                return "C";
             } else if (computerSelection == "Paper") {
                 console.log(playerWin);
-                break;
-                //return "P";
+                return "P";
             } else if (computerSelection == "Scissors") {
                 console.log(tie);
-                break;
-                //return "T";
+                return "T";
             }
             break;
 
         case "Paper":
             if (computerSelection == "Rock") {
                 console.log(playerWin);
-                break;
-                //return "P";
+                return "P";
             } else if (computerSelection == "Paper") {
                 console.log(tie);
-                break;
-                //return "T";
+                return "T";
             } else if (computerSelection == "Scissors") {
                 console.log(computerWin);
-                break;
-                //return "C";
+                return "C";
             }
             break;
     }

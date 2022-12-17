@@ -28,39 +28,39 @@ function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
         case "Rock":
             if (computerSelection == "Rock") {
-                console.log(tie);
+                div.textContent = tie;
                 return "T";
             } else if (computerSelection == "Paper") {
-                console.log(computerWin);
+                div.textContent = computerWin;
                 return "C";
             } else if (computerSelection == "Scissors") {
-                console.log(playerWin);
+                div.textContent = (playerWin);
                 return "P";
             }
             break;
         
         case "Scissors":
             if (computerSelection == "Rock") {
-                console.log(computerWin);
+                div.textContent = (computerWin);
                 return "C";
             } else if (computerSelection == "Paper") {
-                console.log(playerWin);
+                div.textContent = (playerWin);
                 return "P";
             } else if (computerSelection == "Scissors") {
-                console.log(tie);
+                div.textContent = (tie);
                 return "T";
             }
             break;
 
         case "Paper":
             if (computerSelection == "Rock") {
-                console.log(playerWin);
+                div.textContent = (playerWin);
                 return "P";
             } else if (computerSelection == "Paper") {
-                console.log(tie);
+                div.textContent = (tie);
                 return "T";
             } else if (computerSelection == "Scissors") {
-                console.log(computerWin);
+                div.textContent = (computerWin);
                 return "C";
             }
             break;
@@ -146,4 +146,8 @@ function game() {
 }
 
 // Start automatically
+const body = document.querySelector("body");
+const div = document.createElement("div");
+body.appendChild(div);
+
 game();

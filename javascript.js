@@ -67,6 +67,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function checkScore() {
+    // Calculate final score
+    if (computerWins == 5) {
+        alert(`Computer Wins! ${computerWins} v ${playerWins}`);
+        computerWins = 0;
+        playerWins = 0;
+    } else if (playerWins == 5) {
+        alert(`You Win! ${playerWins} v ${computerWins}`)
+        computerWins = 0;
+        playerWins = 0;
+    }
+}
+
 const body = document.querySelector("body");
 const div = document.createElement("div");
 body.appendChild(div);
@@ -141,6 +154,4 @@ scissorsButton.addEventListener('click', () => {
 
     checkScore();
 });
-
-
 

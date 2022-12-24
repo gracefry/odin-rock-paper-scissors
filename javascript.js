@@ -102,7 +102,7 @@ function game(e) {
 }
 
 const body = document.querySelector("body");
-const div = document.createElement("div");
+const div = document.createElement("h3");
 body.appendChild(div);
 
 let computerWins = 0;

@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+button {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
